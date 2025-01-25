@@ -110,21 +110,24 @@ a {
 
 .feature-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-    gap: 20px; /* Adds space between cards */
-    justify-items: center;
+    grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
+    gap: 20px;
+    justify-items: center; /* Ensures cards are centered horizontally */
+    align-items: stretch; /* Ensures cards stretch to fill space vertically */
 }
 
 .card {
-    width: 100%; /* Ensures cards take up the full space */
-    max-width: 350px; /* Limiting card width */
-    margin: auto; /* Centers cards horizontally */
+    width: 100%; /* Full width of grid cell */
+    max-width: 350px; /* Maximum width of card */
     padding: 20px;
     background: #fff;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures proper spacing inside the card */
 }
 
 .card:hover {
@@ -150,7 +153,7 @@ a {
     }
 
     .card {
-        max-width: 90%; /* Cards take up most of the space on mobile/tablets */
+        max-width: 90%; /* Cards take up more width on tablets */
     }
 }
 
@@ -165,10 +168,11 @@ a {
     }
 
     .card {
-        max-width: 100%; /* Cards take full width */
+        max-width: 100%; /* Cards take full width on mobile */
         padding: 15px; /* Reduced padding for small screens */
     }
 }
+
 
 
 /* About Section */
