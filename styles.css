@@ -109,14 +109,16 @@ a {
 }
 
 .feature-cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    gap: 20px; /* Adds space between cards */
+    justify-items: center;
 }
 
 .card {
-    flex: 1;
-    margin: 10px;
+    width: 100%; /* Ensures cards take up the full space */
+    max-width: 350px; /* Limiting card width */
+    margin: auto; /* Centers cards horizontally */
     padding: 20px;
     background: #fff;
     text-align: center;
@@ -135,6 +137,39 @@ a {
     margin-bottom: 10px;
     animation: pulse 2s infinite;
 }
+
+/* Mobile Adjustments for the Features Section */
+@media screen and (max-width: 768px) {
+    .features h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 15px;
+    }
+
+    .card {
+        max-width: 90%; /* Cards take up most of the space on mobile/tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .features h2 {
+        font-size: 1.5rem;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on small mobile devices */
+        gap: 10px;
+    }
+
+    .card {
+        max-width: 100%; /* Cards take full width */
+        padding: 15px; /* Reduced padding for small screens */
+    }
+}
+
 
 /* About Section */
 .about {
